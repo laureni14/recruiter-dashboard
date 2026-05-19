@@ -34,10 +34,10 @@ select option{color:#191919;background:#fff}
 .progress-label{font-size:11px;font-weight:700;color:#6b6b6b;white-space:nowrap}
 .progress-bar-bg{flex:1;height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden}
 .progress-bar-fill{height:100%;border-radius:3px;transition:width .3s}
-.p-exceeded .progress-bar-fill{background:#000}
-.p-ontrack .progress-bar-fill{background:#191919}
-.p-behind .progress-bar-fill{background:#999}
-.p-atrisk .progress-bar-fill{background:#c62828}
+.p-exceeded .progress-bar-fill{background:#16a34a}
+.p-ontrack .progress-bar-fill{background:#16a34a}
+.p-behind .progress-bar-fill{background:#eab308}
+.p-atrisk .progress-bar-fill{background:#dc2626}
 .progress-pct{font-size:11px;font-weight:800;min-width:36px;text-align:right}
 .tile-metrics{display:flex}
 .metric{flex:1;padding:14px 8px;text-align:center;cursor:pointer;transition:background .12s;border-right:1px solid #f0f0f0;position:relative}
@@ -215,7 +215,7 @@ function renderTiles(){
 
     g+=`<div class="tile" data-idx="${i}">
       <div class="tile-header"><div class="tile-name">${r.n}</div><span class="badge ${r.t==='F'?'badge-fte':'badge-ctr'}">${r.t==='F'?'FTE':'CTR'}</span></div>
-      ${isLauren?`<div class="progress-section"><div class="progress-label">${hires} / ${goal}</div><div class="progress-bar-bg ${pClass}"><div class="progress-bar-fill" style="width:${Math.min(pct,100)}%"></div></div><div class="progress-pct" style="color:${pct>=100?'#000':pct>=70?'#191919':pct>=40?'#999':'#c62828'}">${pct}%</div></div>`:''}
+      ${isLauren?`<div class="progress-section"><div class="progress-label">${hires} / ${goal}</div><div class="progress-bar-bg ${pClass}"><div class="progress-bar-fill" style="width:${Math.min(pct,100)}%"></div></div><div class="progress-pct" style="color:${pct>=100?'#16a34a':pct>=70?'#16a34a':pct>=40?'#eab308':'#dc2626'}">${pct}%</div></div>`:''}
       <div class="tile-metrics">
         <div class="metric metric-active" onclick="window._expand(${i},'active',this)"><div class="metric-value">${f.active.length}</div><div class="metric-label">Active Roles</div><div class="click-hint">details ↓</div></div>
         <div class="metric metric-offers" onclick="window._expand(${i},'offers',this)"><div class="metric-value">${f.offers.length}</div><div class="metric-label">Offers Accepted</div><div class="click-hint">details ↓</div></div>
